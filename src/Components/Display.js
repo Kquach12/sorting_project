@@ -4,7 +4,7 @@ import React, {useState} from 'react'
 
 
 const Display = (props) => {
-    const [testArray,setTestArray] = useState([5,2,10,15,20,4,1])
+    const [testArray,setTestArray] = useState([5,2,10,15,20,4,1,15,40,45,23,10,37,3,7,9,35,3,45])
 
     const insertionSort = (array)=> {
         // console.log(array)
@@ -34,7 +34,14 @@ const Display = (props) => {
         <div>
             <button onClick={(e)=>insertionSort(testArrayCopy)}>Sort</button>
             {
-                testArray.map((value) => <p>{value}</p>) 
+                testArray.map((value) => 
+                    <div style={{
+                        height: `20px`,
+                        width:`${value * 10}px`,
+                        backgroundColor: "blue",
+                        margin:"5px"
+                    }}></div>
+                ) 
             }
         </div>
     )
