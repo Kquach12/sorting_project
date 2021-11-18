@@ -5,10 +5,17 @@ import React, {useState} from 'react'
 
 const Display = (props) => {
     const [testArray,setTestArray] = useState([5,2,12,15,20,4,3,15,40,45,23,10,37,3,7,9,35,3,45,10])
+    const [selectedValue, setSelectedValue] = useState()
+
+    const sortingAlgo = props.sortingAlgo
+
+    const selection = (array) =>{
+        if (sortingAlgo == "insertionSort"){
+            insertionSort(array)
+        }
+    }
 
     const timer = ms => new Promise(res => setTimeout(res, ms))
-
-    const [selectedValue, setSelectedValue] = useState()
     
     async function insertionSort(array) {
         
@@ -35,10 +42,11 @@ const Display = (props) => {
     }
 
 
+
     console.log(testArray)
     return(
         <div>
-            <button onClick={(e)=>insertionSort([...testArray])}>Sort</button>
+            <button onClick={(e)=>selection([...testArray])}>Sort</button>
             {
                 testArray.map((value, index) =>
                 
