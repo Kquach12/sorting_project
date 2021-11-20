@@ -19,10 +19,12 @@ function App() {
   return (
     <div className="App">
       <nav>
-            <div>
-                <button onClick={useSortAlgoFunction} value="insertionSort">Insertion Sort</button>
-            </div>
-        </nav>
+        <div>
+          <button onClick={useSortAlgoFunction} value="insertionSort">Insertion Sort</button>
+          <button onClick={useSortAlgoFunction} value="bubbleSort">Bubble Sort</button>
+        </div>
+        <h3>Selected Sort: {sortAlgo}</h3>
+      </nav>
       {/* <Navbar useSortAlgo = {useSortAlgoFunction}/> */}
       <Display sortingAlgo = {sortAlgo}/>
       <InsertionSort/>

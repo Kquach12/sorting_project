@@ -13,6 +13,9 @@ const Display = (props) => {
         if (sortingAlgo == "insertionSort"){
             insertionSort(array)
         }
+        else if (sortingAlgo == "bubbleSort"){
+            bubbleSort(array)
+        }
     }
 
     const timer = ms => new Promise(res => setTimeout(res, ms))
@@ -28,10 +31,10 @@ const Display = (props) => {
                 j-=1
                 setSelectedValue(j)
                 setTestArray([...array])
-                await timer(300)
+                await timer(100)
             }
             setTestArray([...array])
-            await timer(300)
+            await timer(100)
         }
     }
 
@@ -42,8 +45,26 @@ const Display = (props) => {
     }
 
 
+    async function bubbleSort(array){
+        let isSorted = false
+        let counter = 0
+        while (!isSorted) {
+            isSorted = true
+            for (let i = 0; i < array.length - 1 - counter; i++){
+                setSelectedValue(i)
+                setTestArray([...array])
+                await timer(300)
+                if (array[i] > array[i+1]) {
+                    swap (i, i+1, array)
+                    isSorted = false
+                }
+			}
+            counter++
+		}
+        setTestArray([...array])
+    }
 
-    console.log(testArray)
+
     return(
         <div>
             <button onClick={(e)=>selection([...testArray])}>Sort</button>
