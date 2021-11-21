@@ -22,6 +22,7 @@ function App() {
         <div>
           <button onClick={useSortAlgoFunction} value="insertionSort">Insertion Sort</button>
           <button onClick={useSortAlgoFunction} value="bubbleSort">Bubble Sort</button>
+          <button onClick={useSortAlgoFunction} value="selectionSort">Selection Sort</button>
         </div>
         <h3>Selected Sort: {sortAlgo}</h3>
       </nav>

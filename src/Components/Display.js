@@ -16,7 +16,12 @@ const Display = (props) => {
         else if (sortingAlgo == "bubbleSort"){
             bubbleSort(array)
         }
+        else if (sortingAlgo == "selectionSort"){
+            selectionSort(array)
+        }
     }
+
+    //**********************************SORTING ALGOS*********************************************/
 
     const timer = ms => new Promise(res => setTimeout(res, ms))
     
@@ -63,6 +68,29 @@ const Display = (props) => {
 		}
         setTestArray([...array])
     }
+
+
+    async function selectionSort(array) {
+        for (let i = 0; i < array.length; i++){
+            let lowest = i 
+            let needsSort = false
+            for (let j = i+1; j < array.length; j++){
+                setSelectedValue(j)
+                setTestArray([...array])
+                await timer(300)
+                if (array[j] < array[lowest]){
+                    lowest = j
+                    needsSort = true
+                }
+            }
+            if (needsSort){
+                swap(i, lowest, array)
+            } 
+        }
+        setTestArray([...array])
+    }
+
+    //**********************************SORTING ALGOS*********************************************/
 
 
     return(
