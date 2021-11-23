@@ -78,7 +78,7 @@ const Display = (props) => {
     }
 
 
-    async function selectionSort(array) {
+    const selectionSort= async (array) => {
         for (let i = 0; i < array.length; i++){
             let lowest = i 
             let needsSort = false
@@ -99,6 +99,7 @@ const Display = (props) => {
         setSelectedValue("")
     }
 
+
     //**********************************SORTING ALGOS*********************************************/
 
 
@@ -112,7 +113,7 @@ const Display = (props) => {
                         <div key = {index} style={{
                             height: `10px`,
                             width:`${value * 10}px`,
-                            backgroundColor: "red",
+                            backgroundColor: "gold",
                             margin:"5px"
                         }}></div>
                     

@@ -1,6 +1,5 @@
 import Display from './Components/Display';
-import Navbar from './Components/Navbar';
-import InsertionSort from './Components/InsertionSort';
+import InsertionSort1 from './Components/InsertionSort';
 
 import {useState} from 'react'
 import './App.css';
@@ -20,12 +19,12 @@ function App() {
     setSortAlgo(e.target.value)
     console.log(sortAlgo)
   }
-  
+
 
   return (
     <div className="App">
       <nav className="navbar">
-        <button onClick={generateArray}>Generate Array</button>
+        <button onClick={generateArray} className="sortButton">Generate Array</button>
         <div >
           <button onClick={useSortAlgoFunction} value="Insertion" className="sortChoice">Insertion Sort</button>
           <button onClick={useSortAlgoFunction} value="Bubble" className="sortChoice">Bubble Sort</button>
@@ -35,7 +34,7 @@ function App() {
       </nav>
       {/* <Navbar useSortAlgo = {useSortAlgoFunction}/> */}
       <Display sortingAlgo = {sortAlgo} array = {array}/>
-      <InsertionSort/>
+      {/* <InsertionSort/> */}
     </div>
   );
 }

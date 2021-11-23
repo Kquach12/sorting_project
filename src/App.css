@@ -2,11 +2,16 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: plum;
+  background-color: rgb(47, 81, 104);
 }
 
-.sortChoice{
+.sortChoice, .sortButton{
   margin: 10px;
   background-color: goldenrod;
   border: solid black 2px;
+}
+
+.sortButton{
+  padding: 8px;
+  font-weight: bold;
 }
