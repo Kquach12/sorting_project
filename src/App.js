@@ -1,5 +1,5 @@
 import Display from './Components/Display';
-import InsertionSort1 from './Components/InsertionSort';
+import Test from './Components/Test';
 
 import {useState} from 'react'
 import './App.css';
@@ -7,34 +7,51 @@ import './App.css';
 function App() {
 
   const [array, setArray] = useState([])
+  const [isStarting, setIsStarting] = useState()
 
   const [sortAlgo, setSortAlgo] = useState("")
 
   const generateArray = ()=>{
     setArray(Array.from({length: 30}, () => Math.floor(Math.random() * 50 + 1)))
+    setIsStarting(false)
     console.log(array)
   }
 
   const useSortAlgoFunction = (e)=>{
+    setIsStarting(false)
     setSortAlgo(e.target.value)
     console.log(sortAlgo)
   }
 
+  const start = () =>{
+    setIsStarting(true)
+    console.log(isStarting)
+  }
 
   return (
     <div className="App">
       <nav className="navbar">
         <button onClick={generateArray} className="sortButton">Generate Array</button>
         <div >
-          <button onClick={useSortAlgoFunction} value="Insertion" className="sortChoice">Insertion Sort</button>
-          <button onClick={useSortAlgoFunction} value="Bubble" className="sortChoice">Bubble Sort</button>
-          <button onClick={useSortAlgoFunction} value="Selection" className="sortChoice">Selection Sort</button>
+          {
+            sortAlgo == "insertion"?
+            <button onClick={useSortAlgoFunction} value="insertion" className="sortChoice" style={{backgroundColor:"rgb(173, 173, 173)"}}>Insertion Sort</button>:
+            <button onClick={useSortAlgoFunction} value="insertion" className="sortChoice" >Insertion Sort</button >
+          }
+          {
+            sortAlgo == "bubble"?
+            <button onClick={useSortAlgoFunction} value="bubble" className="sortChoice" style={{backgroundColor:"rgb(173, 173, 173)"}}>Bubble Sort</button>:
+            <button onClick={useSortAlgoFunction} value="bubble" className="sortChoice" >Bubble Sort</button >
+          }
+          {
+            sortAlgo == "selection"?
+            <button onClick={useSortAlgoFunction} value="selection" className="sortChoice" style={{backgroundColor:"rgb(173, 173, 173)"}}>Selection Sort</button>:
+            <button onClick={useSortAlgoFunction} value="selection" className="sortChoice" >Selection Sort</button >
+          }
         </div>
-        <h3>Selected Sort: {sortAlgo}</h3>
+        <button onClick={start} className="sortButton">Sort!</button>
       </nav>
-      {/* <Navbar useSortAlgo = {useSortAlgoFunction}/> */}
-      <Display sortingAlgo = {sortAlgo} array = {array}/>
-      {/* <InsertionSort/> */}
+      <Display sortingAlgo = {sortAlgo} array = {array} start = {isStarting}/>
     </div>
   );
 }

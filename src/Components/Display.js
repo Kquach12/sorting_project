@@ -4,24 +4,34 @@ import React, {useEffect, useState} from 'react'
 
 
 const Display = (props) => {
-    const {sortingAlgo, array} = props
+    const {sortingAlgo, array, start} = props
+
 
     const [testArray,setTestArray] = useState([])
     const [selectedValue, setSelectedValue] = useState()
+    const [willStart, setWillStart] = useState()
     
-
+    
     useEffect (()=>
-        setTestArray(props.array), [props.array]
+        setTestArray([...array]), 
+        [array]
+    )
+    useEffect (()=>
+        setWillStart(start), 
+        [start]
     )
 
+    let delay = 50
+
     const selection = (array) =>{
-        if (sortingAlgo == "Insertion"){
+        setWillStart(false)
+        if (sortingAlgo == "insertion"){
             insertionSort(array)
         }
-        else if (sortingAlgo == "Bubble"){
+        else if (sortingAlgo == "bubble"){
             bubbleSort(array)
         }
-        else if (sortingAlgo == "Selection"){
+        else if (sortingAlgo == "selection"){
             selectionSort(array)
         }
         console.log(array)
@@ -42,10 +52,10 @@ const Display = (props) => {
                 j-=1
                 setSelectedValue(j)
                 setTestArray([...array])
-                await timer(100)
+                await timer(50)
             }
             setTestArray([...array])
-            await timer(100)
+            await timer(50)
         }
         setSelectedValue("")
     }
@@ -65,7 +75,7 @@ const Display = (props) => {
             for (let i = 0; i < array.length - 1 - counter; i++){
                 setSelectedValue(i)
                 setTestArray([...array])
-                await timer(100)
+                await timer(50)
                 if (array[i] > array[i+1]) {
                     swap (i, i+1, array)
                     isSorted = false
@@ -85,7 +95,7 @@ const Display = (props) => {
             for (let j = i+1; j < array.length; j++){
                 setSelectedValue(j)
                 setTestArray([...array])
-                await timer(100)
+                await timer(50)
                 if (array[j] < array[lowest]){
                     lowest = j
                     needsSort = true
@@ -101,11 +111,13 @@ const Display = (props) => {
 
 
     //**********************************SORTING ALGOS*********************************************/
-
+    if (willStart){
+        selection([...testArray])
+    }
 
     return(
         <div>
-            <button onClick={(e)=>selection([...testArray])}>Sort</button>
+            {/* <button onClick={(e)=>selection([...testArray])}>Sort</button> */}
             {
                 testArray.map((value, index) =>
                 
