@@ -12,7 +12,7 @@ function App() {
   const [sortAlgo, setSortAlgo] = useState("")
 
   const generateArray = ()=>{
-    setArray(Array.from({length: 30}, () => Math.floor(Math.random() * 50 + 1)))
+    setArray(Array.from({length: 15}, () => Math.floor(Math.random() * 50 + 1)))
     setIsStarting(false)
     console.log(array)
   }
@@ -48,6 +48,11 @@ function App() {
             <button onClick={useSortAlgoFunction} value="selection" className="sortChoice" style={{backgroundColor:"rgb(173, 173, 173)"}}>Selection Sort</button>:
             <button onClick={useSortAlgoFunction} value="selection" className="sortChoice" >Selection Sort</button >
           }
+          {/* {
+            sortAlgo == "quick"?
+            <button onClick={useSortAlgoFunction} value="quick" className="sortChoice" style={{backgroundColor:"rgb(173, 173, 173)"}}>Quick Sort</button>:
+            <button onClick={useSortAlgoFunction} value="quick" className="sortChoice" >Quick Sort</button >
+          } */}
         </div>
         <button onClick={start} className="sortButton">Sort!</button>
       </nav>
