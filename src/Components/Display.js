@@ -9,8 +9,8 @@ const Display = (props) => {
     
     const [testArray,setTestArray] = useState([])
     const [selectedValue, setSelectedValue] = useState()
-    const [selectedValue2, setSelectedValue2] = useState()
-    const [selectedValue3, setSelectedValue3] = useState()
+    // const [selectedValue2, setSelectedValue2] = useState()
+    // const [selectedValue3, setSelectedValue3] = useState()
     const [willStart, setWillStart] = useState()
     
     
@@ -23,7 +23,7 @@ const Display = (props) => {
         [start]
     )
     
-    let delay = 300
+    let delay = 150
     
     const selection = (array) =>{
         setWillStart(false)
@@ -36,9 +36,9 @@ const Display = (props) => {
         else if (sortingAlgo == "selection"){
             selectionSort(array)
         }
-        else if (sortingAlgo == "quick"){
-            quickSort(array)
-        }
+        // else if (sortingAlgo == "quick"){
+        //     quickSort(array)
+        // }
         console.log(array)
     }
     
@@ -183,31 +183,13 @@ const Display = (props) => {
                             margin:"5px",
                             borderRadius: "25px"
                         }}></div>
-                    
-                    : index ===selectedValue2?
-                        <div key = {index} style={{
-                            height: `10px`,
-                            width:`${value * 10}px`,
-                            backgroundColor: "red",
-                            margin:"5px",
-                            borderRadius: "25px"
-                        }}></div> 
-
-                        : index ===selectedValue3 ?
-                            <div key = {index} style={{
+                            :<div key = {index} style={{
                                 height: `10px`,
                                 width:`${value * 10}px`,
-                                backgroundColor: "pink",
+                                backgroundColor: "blue",
                                 margin:"5px",
                                 borderRadius: "25px"
                             }}></div>
-                                :<div key = {index} style={{
-                                    height: `10px`,
-                                    width:`${value * 10}px`,
-                                    backgroundColor: "blue",
-                                    margin:"5px",
-                                    borderRadius: "25px"
-                                }}></div>
                     
                 
                 ) 

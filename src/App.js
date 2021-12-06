@@ -1,5 +1,5 @@
 import Display from './Components/Display';
-import Test from './Components/Test';
+
 
 import {useState} from 'react'
 import './App.css';
@@ -12,7 +12,7 @@ function App() {
   const [sortAlgo, setSortAlgo] = useState("")
 
   const generateArray = ()=>{
-    setArray(Array.from({length: 15}, () => Math.floor(Math.random() * 50 + 1)))
+    setArray(Array.from({length: 30}, () => Math.floor(Math.random() * 50 + 1)))
     setIsStarting(false)
     console.log(array)
   }
