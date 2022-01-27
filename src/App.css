@@ -19,3 +19,7 @@
 .sortChoice:focus{
   background-color: rgb(173, 173, 173);
 }
+
+.sortButtonsDiv{
+  display: flex;
+}

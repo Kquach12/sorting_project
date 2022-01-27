@@ -13,19 +13,21 @@ function App() {
   const [sortAlgo, setSortAlgo] = useState("")
 
   const generateArray = ()=>{
-    setArray(Array.from({length: 30}, () => Math.floor(Math.random() * 50 + 1)))
-    setIsStarting(false)
+    setArray(Array.from({length: 10}, () => Math.floor(Math.random() * 50 + 1)))
     console.log(array)
   }
 
   const useSortAlgoFunction = (e)=>{
-    setIsStarting(false)
     setSortAlgo(e)
     console.log(sortAlgo)
   }
 
   const start = () =>{
     setIsStarting(true)
+  }
+
+  const setStartingToFalse = () =>{
+    setIsStarting(false)
     console.log(isStarting)
   }
 
@@ -33,10 +35,10 @@ function App() {
     <div className="App">
       <nav className="navbar">
         <button onClick={generateArray} className="sortButton">Generate Array</button>
-        <div >
-          <SortButton sortingAlgo="insertion" successCallBack={useSortAlgoFunction}/>
-          <SortButton sortingAlgo="bubble" successCallBack={useSortAlgoFunction}/>
-          <SortButton sortingAlgo="selection" successCallBack={useSortAlgoFunction}/>
+        <div className='sortButtonsDiv'>
+          <SortButton sortingAlgo="Insertion" successCallBack={useSortAlgoFunction} />
+          <SortButton sortingAlgo="Bubble" successCallBack={useSortAlgoFunction}/>
+          <SortButton sortingAlgo="Selection" successCallBack={useSortAlgoFunction}/>
           {/* {
             sortAlgo == "quick"?
             <button onClick={useSortAlgoFunction} value="quick" className="sortChoice" style={{backgroundColor:"rgb(173, 173, 173)"}}>Quick Sort</button>:
@@ -45,7 +47,7 @@ function App() {
         </div>
         <button onClick={start} className="sortButton">Sort!</button>
       </nav>
-      <Display sortingAlgo = {sortAlgo} array = {array} start = {isStarting}/>
+      <Display sortingAlgo = {sortAlgo} array = {array} start = {isStarting} finishSort={setStartingToFalse}/>
     </div>
   );
 }

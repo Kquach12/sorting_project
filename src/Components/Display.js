@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react'
 
 
 const Display = (props) => {
-    const {sortingAlgo, array, start} = props
+    const {sortingAlgo, array, start, finishSort} = props
     
     
     const [testArray,setTestArray] = useState([])
@@ -16,8 +16,13 @@ const Display = (props) => {
         setTestArray([...array]), 
         [array]
     )
+    // useEffect (()=>
+    //     setWillStart(start), 
+    //     [start]
+    // )
+
     useEffect (()=>
-        setWillStart(start), 
+        selection([...testArray]), 
         [start]
     )
     
@@ -25,19 +30,18 @@ const Display = (props) => {
     
     const selection = (array) =>{
         setWillStart(false)
-        if (sortingAlgo == "insertion"){
+        if (sortingAlgo == "Insertion"){
             insertionSort(array)
         }
-        else if (sortingAlgo == "bubble"){
+        else if (sortingAlgo == "Bubble"){
             bubbleSort(array)
         }
-        else if (sortingAlgo == "selection"){
+        else if (sortingAlgo == "Selection"){
             selectionSort(array)
         }
         // else if (sortingAlgo == "quick"){
         //     quickSort(array)
         // }
-        console.log(array)
     }
     
     //**********************************SORTING ALGOS*********************************************/
@@ -62,6 +66,7 @@ const Display = (props) => {
             await timer(delay)
         }
         setSelectedValue("")
+        finishSort()
     }
 
     function swap(i, j, array){
@@ -89,6 +94,7 @@ const Display = (props) => {
 		}
         setTestArray([...array])
         setSelectedValue("")
+        finishSort()
     }
 
 
@@ -111,6 +117,7 @@ const Display = (props) => {
         }
         setTestArray([...array])
         setSelectedValue("")
+        finishSort()
     }
 
 
@@ -164,9 +171,9 @@ const Display = (props) => {
 
 
     //**********************************SORTING ALGOS*********************************************/
-    if (willStart){
-        selection([...testArray])
-    }
+    // if (willStart){
+    //     selection([...testArray])
+    // }
 
     return(
         <div>
