@@ -9,8 +9,6 @@ const Display = (props) => {
     
     const [testArray,setTestArray] = useState([])
     const [selectedValue, setSelectedValue] = useState()
-    // const [selectedValue2, setSelectedValue2] = useState()
-    // const [selectedValue3, setSelectedValue3] = useState()
     const [willStart, setWillStart] = useState()
     
     

@@ -1,4 +1,5 @@
 import Display from './Components/Display';
+import SortButton from './Components/SortButton';
 
 
 import {useState} from 'react'
@@ -19,7 +20,7 @@ function App() {
 
   const useSortAlgoFunction = (e)=>{
     setIsStarting(false)
-    setSortAlgo(e.target.value)
+    setSortAlgo(e)
     console.log(sortAlgo)
   }
 
@@ -33,21 +34,9 @@ function App() {
       <nav className="navbar">
         <button onClick={generateArray} className="sortButton">Generate Array</button>
         <div >
-          {
-            sortAlgo == "insertion"?
-            <button onClick={useSortAlgoFunction} value="insertion" className="sortChoice" style={{backgroundColor:"rgb(173, 173, 173)"}}>Insertion Sort</button>:
-            <button onClick={useSortAlgoFunction} value="insertion" className="sortChoice" >Insertion Sort</button >
-          }
-          {
-            sortAlgo == "bubble"?
-            <button onClick={useSortAlgoFunction} value="bubble" className="sortChoice" style={{backgroundColor:"rgb(173, 173, 173)"}}>Bubble Sort</button>:
-            <button onClick={useSortAlgoFunction} value="bubble" className="sortChoice" >Bubble Sort</button >
-          }
-          {
-            sortAlgo == "selection"?
-            <button onClick={useSortAlgoFunction} value="selection" className="sortChoice" style={{backgroundColor:"rgb(173, 173, 173)"}}>Selection Sort</button>:
-            <button onClick={useSortAlgoFunction} value="selection" className="sortChoice" >Selection Sort</button >
-          }
+          <SortButton sortingAlgo="insertion" successCallBack={useSortAlgoFunction}/>
+          <SortButton sortingAlgo="bubble" successCallBack={useSortAlgoFunction}/>
+          <SortButton sortingAlgo="selection" successCallBack={useSortAlgoFunction}/>
           {/* {
             sortAlgo == "quick"?
             <button onClick={useSortAlgoFunction} value="quick" className="sortChoice" style={{backgroundColor:"rgb(173, 173, 173)"}}>Quick Sort</button>:
