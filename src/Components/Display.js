@@ -171,9 +171,7 @@ const Display = (props) => {
 
 
     //**********************************SORTING ALGOS*********************************************/
-    // if (willStart){
-    //     selection([...testArray])
-    // }
+
 
     return(
         <div>

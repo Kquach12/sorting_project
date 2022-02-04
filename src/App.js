@@ -13,7 +13,7 @@ function App() {
   const [sortAlgo, setSortAlgo] = useState("")
 
   const generateArray = ()=>{
-    setArray(Array.from({length: 10}, () => Math.floor(Math.random() * 50 + 1)))
+    setArray(Array.from({length: 30}, () => Math.floor(Math.random() * 50 + 1)))
     console.log(array)
   }
 
@@ -39,12 +39,8 @@ function App() {
           <SortButton sortingAlgo="Insertion" successCallBack={useSortAlgoFunction} />
           <SortButton sortingAlgo="Bubble" successCallBack={useSortAlgoFunction}/>
           <SortButton sortingAlgo="Selection" successCallBack={useSortAlgoFunction}/>
-          {/* {
-            sortAlgo == "quick"?
-            <button onClick={useSortAlgoFunction} value="quick" className="sortChoice" style={{backgroundColor:"rgb(173, 173, 173)"}}>Quick Sort</button>:
-            <button onClick={useSortAlgoFunction} value="quick" className="sortChoice" >Quick Sort</button >
-          } */}
         </div>
+        <h4>Sort Algo: {sortAlgo}</h4>
         <button onClick={start} className="sortButton">Sort!</button>
       </nav>
       <Display sortingAlgo = {sortAlgo} array = {array} start = {isStarting} finishSort={setStartingToFalse}/>
